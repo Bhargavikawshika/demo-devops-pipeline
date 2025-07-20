@@ -1,0 +1,39 @@
+pipeline{
+	agent any
+
+	stages{
+
+		stage('Build'){
+			steps{
+				bat 'mvn clean package'
+				}
+
+			}
+
+		stage('Test'){
+			steps{
+				bat 'mvn Test'
+				}
+
+			}
+
+		stage('Code Analysis'){
+			steps{
+				bat 'sonar:sonar'
+				}
+
+			}
+
+		stage('Deploy'){
+			steps{
+				echo 'Deploying application...'
+				}
+
+			}
+
+
+ 
+
+		}
+
+}
